@@ -1,6 +1,4 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
 import configuration from './config/configuration';
 import { TypeOrmModule } from '@nestjs/typeorm';
@@ -13,9 +11,14 @@ import { AttributesModule } from './modules/attributes/attributes.module';
 import { StuffModule } from './modules/stuff/stuff.module';
 import { ClassesModule } from './modules/classes/classes.module';
 import { RacesModule } from './modules/races/races.module';
+import { GraphQLModule } from '@nestjs/graphql';
+import { AppResolver } from './app.resolver';
 
 @Module({
     imports: [
+        GraphQLModule.forRoot({
+            autoSchemaFile: true,
+        }),
         ConfigModule.forRoot({ isGlobal: true, load: [configuration] }),
         TypeOrmModule.forRootAsync({ useClass: TypeOrmConfigService }),
         UsersModule,
@@ -27,7 +30,6 @@ import { RacesModule } from './modules/races/races.module';
         ClassesModule,
         RacesModule,
     ],
-    controllers: [AppController],
-    providers: [AppService],
+    providers: [AppResolver],
 })
 export class AppModule {}

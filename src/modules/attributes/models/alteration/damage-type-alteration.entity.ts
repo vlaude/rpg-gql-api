@@ -1,9 +1,9 @@
+import { Alteration } from './alteration.entity';
 import { ChildEntity, JoinColumn, OneToOne } from 'typeorm';
-import { Boost } from './boost.entity';
 import { DamageType } from '../damage-type.entity';
 
 @ChildEntity()
-export class DamageTypeBoost extends Boost {
+export class DamageTypeAlteration extends Alteration {
     @OneToOne(() => DamageType)
     @JoinColumn()
     damageType: DamageType;

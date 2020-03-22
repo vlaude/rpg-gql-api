@@ -1,5 +1,5 @@
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
-import { Boost } from './boosts/boost.entity';
+import { Alteration } from './alteration/alteration.entity';
 
 /**
  *
@@ -16,8 +16,14 @@ export class Attribute {
     description?: string;
 
     @OneToMany(
-        () => Boost,
-        boost => boost.attribute
+        () => Alteration,
+        alteration => alteration.attribute
     )
-    boosts?: Boost[];
+    alterations?: Alteration[];
+
+    @Column({ type: 'boolean', default: false })
+    isPowerSource?: boolean;
+
+    @Column({ type: 'boolean', default: false })
+    isVitalitySource?: boolean;
 }

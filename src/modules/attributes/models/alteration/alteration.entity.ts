@@ -3,16 +3,16 @@ import { Attribute } from '../attribute.entity';
 
 @Entity()
 @TableInheritance({ column: { type: 'varchar', name: 'type' } })
-export class Boost {
+export class Alteration {
     @PrimaryGeneratedColumn()
     id: string;
 
-    @Column({ type: 'int' })
+    @Column('int')
     value: number;
 
     @ManyToOne(
         () => Attribute,
-        attribute => attribute.boosts
+        attribute => attribute.alterations
     )
     attribute: Attribute;
 }

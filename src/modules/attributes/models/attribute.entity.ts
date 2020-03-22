@@ -1,17 +1,23 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
-import { Boost } from './boost.embedded';
-import { Resistance } from './resistance.embedded';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import { Boost } from './boosts/boost.entity';
 
-// Force, Armure, Dextérité etc.
+/**
+ *
+ */
 @Entity()
 export class Attribute {
-    @PrimaryGeneratedColumn('uuid')
+    @PrimaryGeneratedColumn()
     id: string;
 
     @Column({ length: 20 })
     name: string;
 
-    boosts?: Boost[];
+    @Column('text')
+    description?: string;
 
-    resistances?: Resistance[];
+    @OneToMany(
+        () => Boost,
+        boost => boost.attribute
+    )
+    boosts?: Boost[];
 }

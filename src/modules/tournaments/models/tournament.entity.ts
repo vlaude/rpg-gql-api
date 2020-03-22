@@ -3,7 +3,7 @@ import { Team } from '../../teams/models/team.entity';
 
 @Entity()
 export class Tournament {
-    @PrimaryGeneratedColumn('uuid')
+    @PrimaryGeneratedColumn()
     id: string;
 
     @ManyToMany(() => Team)

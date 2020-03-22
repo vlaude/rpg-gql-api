@@ -3,7 +3,7 @@ import { Character } from '../../characters/models/character.entity';
 
 @Entity()
 export class Team {
-    @PrimaryGeneratedColumn('uuid')
+    @PrimaryGeneratedColumn()
     id: string;
 
     @Column({ length: 20 })

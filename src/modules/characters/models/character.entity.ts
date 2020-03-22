@@ -4,7 +4,7 @@ import { Team } from '../../teams/models/team.entity';
 
 @Entity()
 export class Character {
-    @PrimaryGeneratedColumn('uuid')
+    @PrimaryGeneratedColumn()
     id: string;
 
     @Column({ length: 20 })

@@ -10,8 +10,9 @@ import { CharactersModule } from './modules/characters/characters.module';
 import { TeamsModule } from './modules/teams/teams.module';
 import { TournamentsModule } from './modules/tournaments/tournaments.module';
 import { AttributesModule } from './modules/attributes/attributes.module';
-import { WeaponsModule } from './modules/weapons/weapons.module';
 import { StuffModule } from './modules/stuff/stuff.module';
+import { ClassesModule } from './modules/classes/classes.module';
+import { RacesModule } from './modules/races/races.module';
 
 @Module({
     imports: [
@@ -22,8 +23,9 @@ import { StuffModule } from './modules/stuff/stuff.module';
         TeamsModule,
         TournamentsModule,
         AttributesModule,
-        WeaponsModule,
         StuffModule,
+        ClassesModule,
+        RacesModule,
     ],
     controllers: [AppController],
     providers: [AppService],

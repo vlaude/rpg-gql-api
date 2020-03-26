@@ -7,7 +7,7 @@ import { UsersModule } from './modules/users/users.module';
 import { CharactersModule } from './modules/characters/characters.module';
 import { TeamsModule } from './modules/teams/teams.module';
 import { TournamentsModule } from './modules/tournaments/tournaments.module';
-import { AttributesModule } from './modules/attributes/attributes.module';
+import { AttributeModule } from './modules/attributes/attribute.module';
 import { StuffModule } from './modules/stuff/stuff.module';
 import { ClassesModule } from './modules/classes/classes.module';
 import { RacesModule } from './modules/races/races.module';
@@ -25,7 +25,7 @@ import { AppResolver } from './app.resolver';
         CharactersModule,
         TeamsModule,
         TournamentsModule,
-        AttributesModule,
+        AttributeModule,
         StuffModule,
         ClassesModule,
         RacesModule,

@@ -17,7 +17,7 @@ import { AppResolver } from './app.resolver';
 @Module({
     imports: [
         GraphQLModule.forRoot({
-            autoSchemaFile: true,
+            autoSchemaFile: 'schema.gql',
         }),
         ConfigModule.forRoot({ isGlobal: true, load: [configuration] }),
         TypeOrmModule.forRootAsync({ useClass: TypeOrmConfigService }),

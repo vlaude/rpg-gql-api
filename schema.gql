@@ -1,0 +1,84 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Alteration {
+  id: ID!
+  type: AlterationType!
+  value: Int!
+  property: String!
+}
+
+enum AlterationType {
+  DAMAGE_TYPE
+}
+
+type Attribute {
+  id: ID!
+  name: String!
+  description: String
+  alterations: [Alteration!]
+  isPowerSource: Boolean!
+  isVitalitySource: Boolean!
+}
+
+input CreateAlterationInput {
+  type: AlterationType!
+  value: Int!
+  property: String!
+}
+
+input CreateAttributeInput {
+  name: String!
+  description: String
+  isPowerSource: Boolean
+  isVitalitySource: Boolean
+  alterations: [CreateAlterationInput!]
+}
+
+input CreateDamageTypeInput {
+  name: String!
+}
+
+input CreateEquipmentPositionInput {
+  position: String!
+}
+
+input CreateEquipmentTypeInput {
+  name: String!
+  upTypeId: String
+  positionId: String
+}
+
+type DamageType {
+  id: ID!
+  name: String!
+}
+
+type EquipmentPosition {
+  id: ID!
+  position: String!
+}
+
+type EquipmentType {
+  id: ID!
+  name: String!
+  upType: EquipmentType
+  subTypes: [EquipmentType!]
+  position: EquipmentPosition
+}
+
+type Mutation {
+  createAttribute(createAttributeData: CreateAttributeInput!): Attribute!
+  createDamageType(createDamageTypeData: CreateDamageTypeInput!): DamageType!
+  createEquipmentType(createEquipmentTypeData: CreateEquipmentTypeInput!): EquipmentType!
+  createEquipmentPosition(createEquipmentPositionData: CreateEquipmentPositionInput!): EquipmentPosition!
+}
+
+type Query {
+  attributes: [Attribute!]!
+  damageTypes: [DamageType!]!
+  equipmentTypes: [EquipmentType!]!
+  equipmentPositions: [EquipmentPosition!]!
+  greetings: String!
+}
